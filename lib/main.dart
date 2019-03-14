@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter示例程序',
+      title: '阅读',
       theme: ThemeData(
         // 这是您的应用程序的主题。
         //
@@ -86,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              '统计你点击按钮的次数:',
+              '统计点击按钮的次数:',
             ),
             Text(
               '$_counter',

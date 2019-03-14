@@ -1,5 +1,5 @@
-name: hello_word
-description: A new Flutter project.
+name: YueDuFlutter
+description: 致力于优质的阅读体验!
 
 # 以下定义了应用程序的版本号和内部版本号。
 # 版本号是由点分隔的三个数字组成，如 1.2.43
@@ -38,8 +38,8 @@ flutter:
   uses-material-design: true
 
   # 要向应用程序添加资源，请添加资源部分，如下所示：
-  # assets:
-  #  - images/a_dot_burr.jpeg
+  assets:
+    - lib/res/images/
   #  - images/a_dot_ham.jpeg
 
   # 图像资源可以指一个或多个特定于分辨率的“变体”，请参阅

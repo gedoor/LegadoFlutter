@@ -1,4 +1,4 @@
-package com.example.hello_word;
+package com.example.YueDuFlutter;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
