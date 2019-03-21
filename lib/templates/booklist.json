@@ -1,0 +1,56 @@
+{
+    "booklist": [
+        {
+            "bookRule": "笔趣宝",
+            "bookName": "书籍名称",
+            "bookAuthor": "书籍作者",
+            "bookCover": "书籍封面base64",
+            "bookIntroduce": "书籍简介",
+            "bookIndexUrl": "http://书籍简介页",
+            "bookChapterUrl": "http://书籍目录页",
+            "bookChapterList": [
+                {"章节名": "http://章节地址"}
+            ],
+            "bookReadChapter": "章节名",
+            "bookReadProgress": 8,
+            "bookReadMark": {
+                "章节名": "http://章节地址"
+            }
+        }
+    ],
+    "rulelist": [
+        {
+            "bookSourceName": "笔趣宝",
+            "bookSourceGroup": "XPath; 优+",
+            "bookSourceUrl": "https://www.biqubao.com",
+            "loginUrl": "",
+            "ruleFindUrl": "",
+            "ruleSearchUrl": "https://www.biqubao.com/search.php?keyword=searchKey&page=searchPage",
+            "ruleSearchList": "//*[@class=\"result-list\"]/div",
+            "ruleSearchName": "//h3/a/@title",
+            "ruleSearchAuthor": "//*[contains(text(), \"作者\")]/following-sibling::*/text()",
+            "ruleSearchKind": "//*[contains(text(), \"类型\")]/following-sibling::*/text()",
+            "ruleSearchLastChapter": "//*[contains(text(), \"最新章节\")]/following-sibling::*/text()",
+            "ruleSearchCoverUrl": "//img/@src",
+            "ruleSearchNoteUrl": "//h3/a/@href",
+            "ruleBookUrlPattern": "",
+            "ruleBookName": "//*[@property=\"og:title\"]/@content",
+            "ruleBookAuthor": "//*[@property=\"og:novel:author\"]/@content",
+            "ruleBookKind": "//*[@property=\"og:novel:category\"]/@content",
+            "ruleBookLastChapter": "//*[@property=\"og:novel:latest_chapter_name\"]/@content",
+            "ruleCoverUrl": "//*[@property=\"og:image\"]/@content",
+            "ruleIntroduce": "//*[@property=\"og:description\"]/@content",
+            "ruleChapterUrl": "",
+            "ruleChapterList": "//*[@id=\"list\"]//dd/a",
+            "ruleChapterUrlNext": "",
+            "ruleChapterName": "//text()",
+            "ruleContentUrl": "//@href",
+            "ruleContentUrlNext": "",
+            "ruleBookContent": "//*[@id=\"content\"]",
+            "httpUserAgent": "",
+            "enable": true,
+            "serialNumber": 0,
+            "weight": 0
+        }
+    ]
+}
