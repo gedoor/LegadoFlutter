@@ -42,12 +42,12 @@ class BookCardState extends State<BookCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: Color(0x40666666),
-        borderRadius: BorderRadius.all(Radius.circular(6.0)),
+      decoration: BoxDecoration(  // 修饰容器
+        color: Color(0x40666666), // 背景色
+        borderRadius: BorderRadius.all(Radius.circular(6.0)), // 边框样式
       ),
-      margin: EdgeInsets.symmetric(vertical: 1.0, horizontal: 2.0),
-      padding: EdgeInsets.all(4.0),
+      margin: EdgeInsets.symmetric(vertical: 1.0, horizontal: 2.0), // 外边距
+      padding: EdgeInsets.all(4.0), // 内间距
       child: Row(
         children: <Widget>[
           // 书籍封面
