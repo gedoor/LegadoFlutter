@@ -51,12 +51,10 @@ flutter:
   # 要在应用程序中添加自定义字体，请在此处“ flutter ”部分中添加字体部分。
   # 此列表中的每个条目都应具有带有字体系列名称的“族”键，以及带有列表的“ fonts ”键，
   # 该列表给出该字体的资产和其他描述符。 例如：
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: KTGB2312
+      fonts:
+        - asset: lib/fonts/KTGB2312.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
