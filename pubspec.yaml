@@ -39,7 +39,7 @@ flutter:
 
   # 要向应用程序添加资源，请添加资源部分，如下所示：
   assets:
-    - lib/res/images/
+    - lib/images/
   #  - images/a_dot_ham.jpeg
 
   # 图像资源可以指一个或多个特定于分辨率的“变体”，请参阅
