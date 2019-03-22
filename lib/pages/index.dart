@@ -1,4 +1,4 @@
-import 'package:YueDuFlutter/widgets/bookCard.dart';
+import 'package:YueDuFlutter/widgets/bookListCard.dart';
 import 'package:YueDuFlutter/widgets/indexTitleBar.dart';
 import 'package:flutter/material.dart';
 
