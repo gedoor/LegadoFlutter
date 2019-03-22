@@ -1,5 +1,4 @@
-import 'dart:ui';
-
+import 'package:YueDuFlutter/widgets/bookCard.dart';
 import 'package:YueDuFlutter/widgets/indexTitleBar.dart';
 import 'package:flutter/material.dart';
 
@@ -25,23 +24,31 @@ class IndexPageState extends State<IndexPage> {
         iconTheme: IconThemeData(color: Colors.white),
         title: TitleBar(),
       ),
-      // 侧边栏菜单
-      drawer: Drawer(
-        child: Center(
-          child: Text("这是测试文字"),
-        ),
-      ),
+      // 侧边栏菜单(原生抽屉菜单,只能从边缘划出来,不喜欢这种设计,打算另谋他法)
+      // drawer: Drawer(
+      //   child: Center(
+      //     child: Text("这是测试文字"),
+      //   ),
+      // ),
       // 主体body部分
       body: Container(
-          color: Theme.of(context).primaryColor,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          color: Color(0xFFFFFFFF),
+          child: ListView(
             children: <Widget>[
-              Text('test1'),
-              Text('test2'),
+              BookCard(),
+              BookCard(),
+              BookCard(),
+              BookCard(),
+              BookCard(),
+              BookCard(),
+              BookCard(),
+              BookCard(),
+              BookCard(),
+              BookCard(),
+              BookCard(),
             ],
-          )),
+          ),
+      ),
     );
   }
 }
