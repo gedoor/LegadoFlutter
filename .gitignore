@@ -1,0 +1,13 @@
+.idea/
+.packages
+android/app/src/main/java/io/
+android/gradle/wrapper/gradle-wrapper.jar
+android/gradlew
+android/gradlew.bat
+ios/Flutter/Generated.xcconfig
+ios/Runner/GeneratedPluginRegistrant.h
+ios/Runner/GeneratedPluginRegistrant.m
+android/.gradle/
+android/local.properties
+build/
+gen/
