@@ -10,19 +10,13 @@ class IndexPage extends StatefulWidget {
 
 // 主页内容构造
 class IndexPageState extends State<IndexPage> {
-  final controller = TextEditingController();
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // 导航栏
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.white),
-        title: TitleBar(),
+        title: SearchBar(),
       ),
       // 侧边栏菜单(原生抽屉菜单,只能从边缘划出来,不喜欢这种设计,打算另谋他法)
       // drawer: Drawer(
@@ -41,7 +35,7 @@ class IndexPageState extends State<IndexPage> {
               bookCover: "https://www.biqubao.com/cover/18/18569/18569s.jpg",
               bookMark: "第一章 天黑别出门",
               bookLastChapter: "第一五零五章 道问",
-              bookUnreadCount: 1572-1,
+              bookUnreadCount: 1572 - 1,
               hasUpdate: true,
             ),
             BookCard(
@@ -50,7 +44,7 @@ class IndexPageState extends State<IndexPage> {
               bookCover: "https://www.biqubao.com/cover/2/2324/2324s.jpg",
               bookMark: "第二十四章 宋书航同学，有你的大快递",
               bookLastChapter: "第2575章 要不要盘根霸神柱之金龙柱出",
-              bookUnreadCount: 2615-31,
+              bookUnreadCount: 2615 - 31,
               hasUpdate: true,
             ),
             BookCard(

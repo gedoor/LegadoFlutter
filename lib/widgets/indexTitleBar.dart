@@ -1,56 +1,57 @@
 import 'package:flutter/material.dart';
 
-// Index页导航栏
-class TitleBar extends StatelessWidget {
+/// 搜索栏部件(完全不能使用,需要另寻其它办法)
+class SearchBar extends StatefulWidget {
+  @override
+  State createState() => new SearchBarState();
+}
+
+/// 搜索栏内容构建
+class SearchBarState extends State<SearchBar> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Icon(Icons.menu),
-        Container( width: 15,),
-        Expanded(
-          child: Container(
-            // 修饰搜索框, 白色背景与圆角
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(5.0)),
-            ),
-            height: 36,
+    return Container(
+      child: Row(
+        children: <Widget>[
+          Icon(Icons.menu),
+          Container(
+            width: 15,
           ),
-        ),
-        Container( width: 10,),
-        Icon(Icons.more_vert),
-      ],
+          Expanded(
+            child: Container(
+              // 修饰搜索框, 白色背景与圆角
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(8.0)),
+              ),
+              height: 32,
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius:
+                          BorderRadius.horizontal(left: Radius.circular(8.0)),
+                    ),
+                    height: 32,
+                    width: 32,
+                    child: Icon(Icons.search),
+                  ),
+                  Text(
+                    "    搜索书名",
+                    style: TextStyle(color: Colors.grey),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            width: 10,
+          ),
+          Icon(Icons.more_vert),
+        ],
+      ),
     );
-    //  Container(
-    //   // 修饰搜索框, 白色背景与圆角
-    //   decoration: BoxDecoration(
-    //     color: Colors.white,
-    //     borderRadius: BorderRadius.all(Radius.circular(5.0)),
-    //   ),
-    //   alignment: Alignment.center,
-    //   height: 36,
-    //   padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-    //   child: Theme(
-    //     data: ThemeData(primaryColor: Colors.grey),
-    //     child: Column(
-    //       children: <Widget>[
-    //         TextField(
-    //           cursorColor: Colors.grey, // 光标颜色
-    //           // 默认设置
-    //           decoration: InputDecoration(
-    //             contentPadding: EdgeInsets.symmetric(vertical: 6.0),
-    //             border: InputBorder.none,
-    //             icon: Icon(Icons.search),
-    //             hintText: "搜索书名",
-    //             hintStyle:
-    //                 TextStyle(fontSize: 18, color: Color(0x80000000)),
-    //           ),
-    //           style: TextStyle(fontSize: 18, color: Colors.black),
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
 }
