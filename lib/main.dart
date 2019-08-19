@@ -1,3 +1,4 @@
+import 'package:YueDuFlutter/pages/bookSearch.dart';
 import 'package:YueDuFlutter/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -44,6 +45,9 @@ class MyApp extends StatelessWidget {
               store.state.platformLocale =
                   WidgetsBinding.instance.window.locale;
               return new YDLocalizations(child: HomePage());
+            },
+            BookSearchPage.sName: (context){
+              return new YDLocalizations(child: BookSearchPage());
             }
           },
           // home: MainPage(),
