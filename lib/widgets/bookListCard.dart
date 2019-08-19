@@ -1,48 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-/// 书籍卡片
-class BookCard extends StatefulWidget {
-  /// 书籍名称
-  final String bookName;
-
-  /// 书籍作者
-  final String bookAuthor;
-
-  /// 封面地址
-  final String bookCover;
-
-  /// 书签章节
-  final String bookMark;
-
-  /// 最新章节
-  final String bookLastChapter;
-
-  /// 未读章节数
-  final int bookUnreadCount;
-
-  /// 是否有新章节
-  final bool hasUpdate;
-
-  BookCard(
-      {@required this.bookName,
-      this.bookAuthor,
-      this.bookCover,
-      this.bookMark,
-      this.bookLastChapter,
-      this.bookUnreadCount,
-      this.hasUpdate});
-
-  @override
-  State createState() => new BookCardState();
-}
-
 /// 卡片内容构造
-class BookCardState extends State<BookCard> {
+class BookCard extends StatelessWidget {
+  final BookCardModel bookCardModel;
+
+  BookCard(this.bookCardModel) : super();
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(  // 修饰容器
+      // 修饰容器
+      decoration: BoxDecoration(
         color: Color(0x40666666), // 背景色
         borderRadius: BorderRadius.all(Radius.circular(6.0)), // 边框样式
       ),
@@ -54,7 +23,7 @@ class BookCardState extends State<BookCard> {
           ClipRRect(
             borderRadius: BorderRadius.circular(4.0),
             child: Image.network(
-              "${widget.bookCover}",
+              "${bookCardModel.bookCover}",
               width: 60.0,
               height: 80.0,
               fit: BoxFit.fill,
@@ -74,7 +43,7 @@ class BookCardState extends State<BookCard> {
                         // 书籍名称
                         Expanded(
                           child: Text(
-                            "${widget.bookName}",
+                            "${bookCardModel.bookName}",
                             style: TextStyle(
                               fontFamily: "KTGB2312", // 字体名称
                               fontWeight: FontWeight.normal, // 字重
@@ -88,11 +57,11 @@ class BookCardState extends State<BookCard> {
                           borderRadius: BorderRadius.circular(8.0),
                           child: Container(
                             padding: EdgeInsets.symmetric(horizontal: 4.0),
-                            color: widget.hasUpdate
+                            color: bookCardModel.hasUpdate
                                 ? Color(0xFFFF0000)
                                 : Color(0xFF888888), // 背景颜色
                             child: Text(
-                              "${widget.bookUnreadCount}",
+                              "${bookCardModel.bookUnreadCount}",
                               style: TextStyle(
                                 color: Color(0xFFFFFFFF), // 字体颜色
                               ),
@@ -110,7 +79,7 @@ class BookCardState extends State<BookCard> {
                         size: 18.0,
                       ),
                       Text(
-                        "${widget.bookAuthor}",
+                        "${bookCardModel.bookAuthor}",
                         maxLines: 1,
                         style: TextStyle(
                           fontFamily: "KTGB2312",
@@ -128,7 +97,7 @@ class BookCardState extends State<BookCard> {
                       ),
                       Expanded(
                         child: Text(
-                          "${widget.bookMark}",
+                          "${bookCardModel.bookMark}",
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis, // 溢出的文本用省略号代替
                           style: TextStyle(
@@ -148,7 +117,7 @@ class BookCardState extends State<BookCard> {
                       ),
                       Expanded(
                         child: Text(
-                          "${widget.bookLastChapter}",
+                          "${bookCardModel.bookLastChapter}",
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis, // 溢出的文本用省略号代替
                           style: TextStyle(
@@ -166,5 +135,46 @@ class BookCardState extends State<BookCard> {
         ],
       ),
     );
+  }
+}
+
+class BookCardModel {
+  String bookName;
+
+  /// 书籍作者
+  String bookAuthor;
+
+  /// 封面地址
+  String bookCover;
+
+  /// 书签章节
+  String bookMark;
+
+  /// 最新章节
+  String bookLastChapter;
+
+  /// 未读章节数
+  int bookUnreadCount;
+
+  /// 是否有新章节
+  bool hasUpdate;
+
+  BookCardModel(
+      {this.bookName,
+      this.bookAuthor,
+      this.bookCover,
+      this.bookMark,
+      this.bookLastChapter,
+      this.bookUnreadCount,
+      this.hasUpdate});
+
+  BookCardModel.fromMap(data) {
+    bookName = data["bookName"];
+    bookAuthor = data["bookAuthor"];
+    bookCover = data["bookCover"];
+    bookMark = data["bookMark"];
+    bookLastChapter = data["bookLastChapter"];
+    bookUnreadCount = data["bookUnreadCount"];
+    hasUpdate = data["hasUpdate"];
   }
 }
