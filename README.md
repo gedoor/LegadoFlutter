@@ -1,3 +1,7 @@
+<a href="https://t.me/legado_ios" target="_blank">
+    <img src="https://img.shields.io/badge/Telegram-iOS Channel-blue" alt="#" align="right">
+</a>
+
 [![icon_appstore](./readme/icon_appstore_32px-42px.png)](https://www.apple.com.cn/app-store/)
 
 <div align="center">
