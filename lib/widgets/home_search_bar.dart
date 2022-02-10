@@ -18,38 +18,47 @@ AppBar homeSearchBar({
   bool enabled = false,
   PreferredSizeWidget bottom,
 }) {
+  Widget content = TextField(
+    enabled: enabled,
+    autofocus: enabled,
+    decoration: InputDecoration(
+      fillColor: Color.fromARGB(0, 0, 0, 0),
+      hintText: placeholder,
+      filled: true,
+      isDense: true,
+      hintStyle: TextStyle(fontSize: 15),
+      border: InputBorder.none,
+    ),
+    onSubmitted: onSubmitted,
+    onChanged: onChanged,
+  );
+
+  content = Container(
+    height: kToolbarHeight - 12,
+    decoration: BoxDecoration(
+        color: Color.fromARGB(55, 128, 128, 128),
+        borderRadius: BorderRadius.all(Radius.circular(5))),
+    padding: EdgeInsets.only(left: 12, right: 12),
+    child: Row(
+      children: <Widget>[
+        Icon(Icons.search),
+        Expanded(
+          child: content,
+        ),
+        Icon(Icons.keyboard_arrow_right)
+      ],
+    ),
+  );
+
+  content = GestureDetector(
+    child: content,
+    onTap: onTap,
+  );
+
   return AppBar(
     iconTheme: IconThemeData(color: Colors.grey),
     backgroundColor: Colors.white,
-    title: GestureDetector(
-      child: Container(
-        color: Color.fromARGB(0, 0, 0, 0),
-        padding: EdgeInsets.only(top: 12, bottom: 12),
-        child: TextField(
-          enabled: enabled,
-          autofocus: enabled,
-          decoration: InputDecoration(
-            fillColor: Color.fromARGB(55, 128, 128, 128),
-            filled: true,
-            hintText: placeholder,
-            isDense: true,
-            hintStyle: TextStyle(
-              fontSize: 15,
-            ),
-            border: InputBorder.none,
-            prefixIcon: Icon(
-              Icons.search,
-            ),
-            suffixIcon: Icon(
-              Icons.keyboard_arrow_right,
-            ),
-          ),
-          onSubmitted: onSubmitted,
-          onChanged: onChanged,
-        ),
-      ),
-      onTap: onTap,
-    ),
+    title: content,
     actions: <Widget>[
       PopupMenuButton<_MenuItem>(
         onSelected: (_MenuItem result) {
