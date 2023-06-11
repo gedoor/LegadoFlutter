@@ -6,13 +6,12 @@ import 'package:dio/dio.dart';
  * on 2019/3/23.
  */
 class HeaderInterceptors extends InterceptorsWrapper {
-
-
   @override
-  onRequest(RequestOptions options) {
+  Future<void> onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
     ///超时
-    options.connectTimeout = 15000;
+    options.connectTimeout = Duration(seconds: 15);
 
-    return options;
+    return handler.next(options);
   }
 }

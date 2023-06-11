@@ -1,13 +1,14 @@
-import 'package:YueDuFlutter/common/store/global_state.dart';
-import 'package:YueDuFlutter/common/utils/navigator_utils.dart';
-import 'package:YueDuFlutter/pages/discover.dart';
-import 'package:YueDuFlutter/pages/home_drawer.dart';
-import 'package:YueDuFlutter/widgets/bookListCard.dart';
-import 'package:YueDuFlutter/widgets/home_search_bar.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
+import '../common/store/global_state.dart';
+import '../common/utils/navigator_utils.dart';
+import '../widgets/bookListCard.dart';
+import '../widgets/home_search_bar.dart';
 import 'bookSearch.dart';
+import 'discover.dart';
+import 'home_drawer.dart';
 
 /// 主页
 class HomePage extends StatelessWidget {
@@ -43,6 +44,12 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
+              onChanged: (v) {
+                print(v);
+              },
+              onSubmitted: (v) {
+                print(v);
+              },
             ),
             drawer: HomeDrawer(),
             // 主体body部分
@@ -52,11 +59,11 @@ class HomePage extends StatelessWidget {
               child: TabBarView(
                 children: <Widget>[
                   ListView.builder(
-                      itemBuilder: (context, index) => bookList.length > 0
-                          ? _renderItem(bookList, index)
-                          : null,
-                      itemCount: bookList.length,
-                    ),
+                    itemBuilder: (context, index) => bookList.length > 0
+                        ? _renderItem(bookList, index)
+                        : null,
+                    itemCount: bookList.length,
+                  ),
                   DiscoverPage()
                 ],
               ),

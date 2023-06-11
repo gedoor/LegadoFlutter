@@ -1,5 +1,7 @@
-import 'package:YueDuFlutter/widgets/home_search_bar.dart';
+
 import 'package:flutter/material.dart';
+
+import '../widgets/home_search_bar.dart';
 
 class BookSearchPage extends StatefulWidget {
   static final String sName = "/searchPage";
@@ -30,10 +32,11 @@ class _BookSearchPage extends State<BookSearchPage> {
             this.hadEnter = false;
           });
         },
+        onTap: () {},
       ),
       body: ListView.builder(
         itemBuilder: (context, idx) =>
-            list.length > 0 ? new Text("data") : null,
+            list.length > 0 ? Text("data") : null,
         itemCount: list.length,
       ),
     );

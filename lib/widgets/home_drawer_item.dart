@@ -1,49 +1,40 @@
 import 'package:flutter/material.dart';
 
 class HomeDrawerItem extends StatelessWidget {
-  final EdgeInsetsGeometry padding;
-  final EdgeInsetsGeometry margin;
   final Widget leading;
   final Widget title;
   final void Function(String data) onTap;
-  final Widget trailing;
   final Color color;
   final Color line;
   final bool bottom;
 
   const HomeDrawerItem({
-    Key key,
-    this.padding = const EdgeInsets.all(12.0),
-    this.margin,
-    @required this.leading,
-    @required this.title,
-    this.onTap,
-    this.trailing,
+    required this.leading,
+    required this.title,
+    required this.onTap,
     this.color = Colors.white,
-    this.line,
-    this.bottom = false,
-  }) : super(key: key);
+    required this.line,
+    required this.bottom,
+  });
   @override
   Widget build(BuildContext context) {
-    return trailing != null
-        ? new Container(
-            padding: padding,
-            margin: margin,
+    return bottom
+        ? Container(
+            padding: EdgeInsets.all(12),
+            // margin: margin,
             decoration: BoxDecoration(
               color: color,
               border: Border(
-                bottom: BorderSide(
-                  color: line ?? Theme.of(context).dividerColor,
-                ),
+                bottom: BorderSide(color: line),
               ),
             ),
-            child: new Row(
+            child: Row(
               children: <Widget>[
                 Expanded(
                   child: GestureDetector(
                     child: Container(
                       color: color,
-                      child: new Row(
+                      child: Row(
                         children: <Widget>[
                           leading,
                           Padding(
@@ -63,7 +54,7 @@ class HomeDrawerItem extends StatelessWidget {
                     child: Container(
                       alignment: Alignment.centerRight,
                       color: color,
-                      child: trailing,
+                      child: Icon(Icons.brightness_2),
                     ),
                     onTap: () {
                       onTap('right');
@@ -73,10 +64,10 @@ class HomeDrawerItem extends StatelessWidget {
               ],
             ),
           )
-        : new GestureDetector(
+        : GestureDetector(
             child: Container(
-              padding: padding,
-              margin: margin,
+              padding: EdgeInsets.all(12),
+              // margin: margin,
               decoration: BoxDecoration(
                 color: color,
                 border: Border(

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 /// 卡片内容构造
 class BookCard extends StatelessWidget {
   final BookCardModel bookCardModel;
 
-  BookCard(this.bookCardModel) : super();
+  BookCard(this.bookCardModel);
 
   @override
   Widget build(BuildContext context) {
@@ -139,34 +138,34 @@ class BookCard extends StatelessWidget {
 }
 
 class BookCardModel {
-  String bookName;
+  late String bookName;
 
   /// 书籍作者
-  String bookAuthor;
+  late String bookAuthor;
 
   /// 封面地址
-  String bookCover;
+  late String bookCover;
 
   /// 书签章节
-  String bookMark;
+  late String bookMark;
 
   /// 最新章节
-  String bookLastChapter;
+  late String bookLastChapter;
 
   /// 未读章节数
-  int bookUnreadCount;
+  late int bookUnreadCount;
 
   /// 是否有新章节
-  bool hasUpdate;
+  late bool hasUpdate;
 
   BookCardModel(
-      {this.bookName,
-      this.bookAuthor,
-      this.bookCover,
-      this.bookMark,
-      this.bookLastChapter,
-      this.bookUnreadCount,
-      this.hasUpdate});
+      {required this.bookName,
+      required this.bookAuthor,
+      required this.bookCover,
+      required this.bookMark,
+      required this.bookLastChapter,
+      required this.bookUnreadCount,
+      required this.hasUpdate});
 
   BookCardModel.fromMap(data) {
     bookName = data["bookName"];

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class SizeRoute extends PageRouteBuilder {
   final Widget widget;
 
-  SizeRoute({this.widget})
+  SizeRoute({required this.widget})
       : super(
           pageBuilder: (
             BuildContext context,
@@ -30,7 +30,7 @@ class SizeRoute extends PageRouteBuilder {
 class NoAnimationRoute extends PageRouteBuilder {
   final Widget widget;
 
-  NoAnimationRoute({this.widget})
+  NoAnimationRoute({required this.widget})
       : super(
           pageBuilder: (
             BuildContext context,
@@ -44,8 +44,8 @@ class NoAnimationRoute extends PageRouteBuilder {
             Animation<double> secondaryAnimation,
             Widget child,
           ) =>
-              new SlideTransition(
-            position: new Tween<Offset>(
+              SlideTransition(
+            position: Tween<Offset>(
               begin: const Offset(0.0, 0.0),
               end: const Offset(0.0, 0.0),
             ).animate(animation),

@@ -1,6 +1,8 @@
-import 'package:YueDuFlutter/common/config/config.dart';
-import 'package:YueDuFlutter/common/local/local_storage.dart';
+
 import 'package:dio/dio.dart';
+
+import '../../config/config.dart';
+import '../../local/local_storage.dart';
 
 /**
  * Token拦截器
@@ -8,25 +10,25 @@ import 'package:dio/dio.dart';
  * on 2019/3/23.
  */
 class TokenInterceptors extends InterceptorsWrapper {
-
-  String _token;
+  late String _token;
 
   @override
-  onRequest(RequestOptions options) async {
+  Future<void> onRequest(
+      RequestOptions options, RequestInterceptorHandler handler) async {
     //授权码
-    if (_token == null) {
+    if (_token == "") {
       var authorizationCode = await getAuthorization();
       if (authorizationCode != null) {
         _token = authorizationCode;
       }
     }
     options.headers["Authorization"] = _token;
-    return options;
+    return handler.next(options);
   }
 
-
   @override
-  onResponse(Response response) async{
+  Future<void> onResponse(
+      Response response, ResponseInterceptorHandler handler) async {
     try {
       var responseJson = response.data;
       if (response.statusCode == 201 && responseJson["token"] != null) {
@@ -36,21 +38,21 @@ class TokenInterceptors extends InterceptorsWrapper {
     } catch (e) {
       print(e);
     }
-    return response;
+    return handler.next(response);
   }
 
   ///清除授权
   clearAuthorization() {
-    this._token = null;
+    this._token = "";
     LocalStorage.remove(Config.TOKEN_KEY);
   }
 
   ///获取授权token
   getAuthorization() async {
     String token = await LocalStorage.get(Config.TOKEN_KEY);
-    if (token == null) {
+    if (token == "") {
       String basic = await LocalStorage.get(Config.USER_BASIC_CODE);
-      if (basic == null) {
+      if (basic == "") {
         //提示输入账号密码
       } else {
         //通过 basic 去获取token，获取到设置，返回token

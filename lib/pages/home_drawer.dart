@@ -1,8 +1,10 @@
-import 'package:YueDuFlutter/common/store/global_state.dart';
-import 'package:YueDuFlutter/widgets/home_drawer_header.dart';
-import 'package:YueDuFlutter/widgets/home_drawer_item.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+
+import '../common/store/global_state.dart';
+import '../widgets/home_drawer_header.dart';
+import '../widgets/home_drawer_item.dart';
 
 /**
  * 主页drawer
@@ -13,93 +15,103 @@ class HomeDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: new StoreBuilder<GlobalState>(
+      child: StoreBuilder<GlobalState>(
         builder: (context, store) {
-          return new Drawer(
-            child: new Container(
+          return Drawer(
+            child: Container(
               color: store.state.themeData.primaryColor,
-              child: new SingleChildScrollView(
+              child: SingleChildScrollView(
                 child: Container(
-                  constraints: new BoxConstraints(
+                  constraints: BoxConstraints(
                       minHeight: MediaQuery.of(context).size.height),
-                  child: new Material(
+                  child: Material(
                     color: Color(0xFFFFFFFF),
-                    child: new Column(
+                    child: Column(
                       children: <Widget>[
-                        new HomeDrawerHeader(
-                          child: new Text(
+                        HomeDrawerHeader(
+                          child: Text(
                             "阅读",
                             style: TextStyle(fontSize: 30),
                           ),
                         ),
-                        new HomeDrawerItem(
+                        HomeDrawerItem(
                           leading: Icon(Icons.color_lens),
-                          title: new Text("书源管理"),
+                          title: Text("书源管理"),
                           onTap: (str) {
                             print(str);
                           },
+                          line: Colors.black,
+                          bottom: false,
                         ),
-                        new HomeDrawerItem(
+                        HomeDrawerItem(
+                            leading: Icon(Icons.color_lens),
+                            title: Text("替换净化"),
+                            onTap: (str) {
+                              print("content");
+                            },
+                            line: Colors.black,
+                            bottom: false),
+                        HomeDrawerItem(
                           leading: Icon(Icons.color_lens),
-                          title: new Text("替换净化"),
-                          onTap: (str) {
-                            print("content");
-                          },
-                        ),
-                        new HomeDrawerItem(
-                          leading: Icon(Icons.color_lens),
-                          title: new Text("下载任务"),
+                          title: Text("下载任务"),
                           bottom: true,
                           onTap: (str) {
                             print("content");
                           },
+                          line: Colors.black,
                         ),
-                        new HomeDrawerItem(
+                        HomeDrawerItem(
                           leading: Icon(Icons.color_lens),
-                          title: new Text("主题"),
-                          trailing: Icon(Icons.brightness_2),
+                          title: Text("主题"),
+                          // trailing: Icon(Icons.brightness_2),
                           bottom: true,
                           onTap: (str) {
                             print("content $str");
                           },
+                          line: Colors.black,
                         ),
-                        new HomeDrawerItem(
-                          leading: Icon(Icons.settings),
-                          title: new Text("设置"),
-                          // dense: true,
-                          onTap: (str) {
-                            print("content");
-                          },
-                        ),
-                        new HomeDrawerItem(
-                          leading: Icon(Icons.help),
-                          title: new Text("关于"),
-                          onTap: (str) {
-                            print("content");
-                          },
-                        ),
-                        new HomeDrawerItem(
+                        HomeDrawerItem(
+                            leading: Icon(Icons.settings),
+                            title: Text("设置"),
+                            // dense: true,
+                            onTap: (str) {
+                              print("content");
+                            },
+                            line: Colors.black,
+                            bottom: false),
+                        HomeDrawerItem(
+                            leading: Icon(Icons.help),
+                            title: Text("关于"),
+                            onTap: (str) {
+                              print("content");
+                            },
+                            line: Colors.black,
+                            bottom: false),
+                        HomeDrawerItem(
                           leading: Icon(Icons.color_lens),
-                          title: new Text("捐赠"),
+                          title: Text("捐赠"),
                           bottom: true,
                           onTap: (str) {
                             print("content");
                           },
+                          line: Colors.black,
                         ),
-                        new HomeDrawerItem(
-                          leading: Icon(Icons.color_lens),
-                          title: new Text("备份"),
-                          onTap: (str) {
-                            print("content");
-                          },
-                        ),
-                        new HomeDrawerItem(
-                          leading: Icon(Icons.color_lens),
-                          title: new Text("恢复"),
-                          onTap: (str) {
-                            print("content $str");
-                          },
-                        ),
+                        HomeDrawerItem(
+                            leading: Icon(Icons.color_lens),
+                            title: Text("备份"),
+                            onTap: (str) {
+                              print("content");
+                            },
+                            line: Colors.black,
+                            bottom: false),
+                        HomeDrawerItem(
+                            leading: Icon(Icons.color_lens),
+                            title: Text("恢复"),
+                            onTap: (str) {
+                              print("content $str");
+                            },
+                            line: Colors.black,
+                            bottom: false),
                       ],
                     ),
                   ),

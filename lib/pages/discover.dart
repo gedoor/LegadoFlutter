@@ -4,7 +4,7 @@ class DiscoverPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: new Text("发现页"),
+      child: Text("发现页"),
     );
   }
 }

@@ -1,12 +1,14 @@
-import 'package:YueDuFlutter/common/store/locale_state.dart';
-import 'package:YueDuFlutter/common/store/supported_locales_state.dart';
-import 'package:YueDuFlutter/common/store/theme_data_state.dart';
+
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
+import 'package:yue_du_flutter/common/store/supported_locales_state.dart';
+import 'package:yue_du_flutter/common/store/theme_data_state.dart';
+
+import 'locale_state.dart';
 
 class GlobalState {
-  final Locale locale;
-  Locale platformLocale;
+  late final Locale locale;
+  late Locale platformLocale;
   final ThemeData themeData;
   List<Locale> supportedLocales;
   List bookList = [
@@ -29,7 +31,10 @@ class GlobalState {
       "hasUpdate": true,
     }
   ];
-  GlobalState({this.locale, this.supportedLocales, this.themeData});
+  GlobalState(
+      {required this.locale,
+      required this.supportedLocales,
+      required this.themeData});
 }
 
 GlobalState appReducer(GlobalState state, action) {
