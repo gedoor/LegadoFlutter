@@ -5,7 +5,8 @@ final supportedLocalesReducer = combineReducers<List<Locale>>([
   TypedReducer<List<Locale>, RefreshLocaleAction>(_refresh),
 ]);
 
-List<Locale> _refresh(List<Locale> supportedLocales, RefreshLocaleAction action) {
+List<Locale> _refresh(
+    List<Locale> supportedLocales, RefreshLocaleAction action) {
   supportedLocales = action.supportedLocales;
   return supportedLocales;
 }

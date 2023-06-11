@@ -11,12 +11,12 @@ enum _MenuItem {
 
 /// 搜索栏部件(完全不能使用,需要另寻其它办法)
 AppBar homeSearchBar({
-  String placeholder,
-  void Function() onTap,
-  void Function(String) onChanged,
-  void Function(String) onSubmitted,
+  required String placeholder,
+  required void Function() onTap,
+  required void Function(String) onChanged,
+  required void Function(String) onSubmitted,
   bool enabled = false,
-  PreferredSizeWidget bottom,
+  PreferredSizeWidget? bottom,
 }) {
   Widget content = TextField(
     enabled: enabled,

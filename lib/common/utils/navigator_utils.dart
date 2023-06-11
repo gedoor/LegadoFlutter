@@ -22,7 +22,7 @@ class NavigatorUtils {
   ///公共打开方式
   static navigatorRouter(BuildContext context, Widget widget) {
     return Navigator.push(context,
-        new CupertinoPageRoute(builder: (context) => pageContainer(widget)));
+        CupertinoPageRoute(builder: (context) => pageContainer(widget)));
   }
 
   ///Page页面的容器，做一次通用自定义
@@ -35,10 +35,10 @@ class NavigatorUtils {
   }
 
   ///弹出 dialog
-  static Future<T> showYDDialog<T>({
-    @required BuildContext context,
+  static Future<T?> showYDDialog<T>({
+    required BuildContext context,
     bool barrierDismissible = true,
-    WidgetBuilder builder,
+    required WidgetBuilder builder,
   }) {
     return showDialog<T>(
         context: context,
@@ -46,9 +46,9 @@ class NavigatorUtils {
         builder: (context) {
           ///不受系统字体缩放影响
           return MediaQuery(
-              data: MediaQueryData.fromWindow(WidgetsBinding.instance.window)
+              data: MediaQueryData.fromView(WidgetsBinding.instance.window)
                   .copyWith(textScaleFactor: 1),
-              child: new SafeArea(child: builder(context)));
+              child: SafeArea(child: builder(context)));
         });
   }
 }

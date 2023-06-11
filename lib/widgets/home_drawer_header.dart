@@ -8,12 +8,11 @@ class HomeDrawerHeader extends StatelessWidget {
   final Widget child;
 
   const HomeDrawerHeader({
-    Key key,
-    @required this.child,
+    required this.child,
     this.height = 80.0,
     this.margin = const EdgeInsets.only(bottom: 8.0),
     this.padding = const EdgeInsets.all(16.0),
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

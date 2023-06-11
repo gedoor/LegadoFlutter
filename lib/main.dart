@@ -1,9 +1,10 @@
-import 'package:YueDuFlutter/pages/bookSearch.dart';
-import 'package:YueDuFlutter/pages/home.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
+import 'package:yue_du_flutter/pages/bookSearch.dart';
+import 'package:yue_du_flutter/pages/home.dart';
 
 import 'common/localization/yd_localizations.dart';
 import 'common/store/global_state.dart';
@@ -12,24 +13,25 @@ import 'common/store/global_state.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  final store = new Store<GlobalState>(
+  final store = Store<GlobalState>(
     appReducer,
     middleware: middleware,
-    initialState: new GlobalState(
+    initialState: GlobalState(
       themeData: ThemeData(
         primaryColor: Color(0xFF666666),
       ),
       locale: Locale('zh', 'CH'),
+      supportedLocales: [],
     ),
   );
 
-  MyApp({Key key}) : super(key: key);
+  MyApp();
 
   @override
   Widget build(BuildContext context) {
-    return new StoreProvider(
+    return StoreProvider(
       store: store,
-      child: new StoreBuilder<GlobalState>(builder: (context, store) {
+      child: StoreBuilder<GlobalState>(builder: (context, store) {
         return MaterialApp(
           title: '阅读',
           // theme: ThemeData(primaryColor: Color(0xFF666666)),
@@ -44,10 +46,10 @@ class MyApp extends StatelessWidget {
             HomePage.sName: (context) {
               store.state.platformLocale =
                   WidgetsBinding.instance.window.locale;
-              return new YDLocalizations(child: HomePage());
+              return YDLocalizations(child: HomePage());
             },
-            BookSearchPage.sName: (context){
-              return new YDLocalizations(child: BookSearchPage());
+            BookSearchPage.sName: (context) {
+              return YDLocalizations(child: BookSearchPage());
             }
           },
           // home: MainPage(),

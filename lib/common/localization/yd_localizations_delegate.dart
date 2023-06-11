@@ -13,7 +13,8 @@ class YDLocalizationsDelegate extends LocalizationsDelegate {
 
   @override
   Future<_YDLocalizations> load(Locale locale) {
-    return new SynchronousFuture<_YDLocalizations>(new _YDLocalizations(locale));
+    return SynchronousFuture<_YDLocalizations>(
+        _YDLocalizations(locale));
   }
 
   @override
@@ -21,7 +22,7 @@ class YDLocalizationsDelegate extends LocalizationsDelegate {
     return false;
   }
 
-  static YDLocalizationsDelegate delegate = new YDLocalizationsDelegate();
+  static YDLocalizationsDelegate delegate = YDLocalizationsDelegate();
 }
 
 class _YDLocalizations {
@@ -29,18 +30,18 @@ class _YDLocalizations {
   _YDLocalizations(this.locale);
 
   static Map<String, YDStringBase> _localizedValues = {
-    'en': new YDStringEn(),
-    'en': new YDStringZh(),
+    'en': YDStringEn(),
+    'en': YDStringZh(),
   };
 
-  YDStringBase get currentLocalized {
+  YDStringBase? get currentLocalized {
     if (_localizedValues.containsKey(locale.languageCode)) {
       return _localizedValues[locale.languageCode];
     }
     return _localizedValues['en'];
   }
 
-  static _YDLocalizations of(BuildContext context){
+  static _YDLocalizations of(BuildContext context) {
     return Localizations.of(context, _YDLocalizations);
   }
 }
